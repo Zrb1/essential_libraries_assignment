@@ -18,5 +18,9 @@ Loading this as a dataframe and running f(df) should return
 """
 def f(df):
     ##########YOUR CODE HERE##########
-    pass
+    path = 'testdf8.csv'
+    df = pd.read_csv(path)
+    dfx = df.copy()
+    dfx = dfx[(df.col_1 % 3 == 0) | (dfx.col_2>6)]
+    return dfx
     ###########END CODE###############

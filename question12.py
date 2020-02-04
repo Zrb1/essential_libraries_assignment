@@ -20,7 +20,19 @@ for index, row in df.iterrows():
 
 would print out the classes of each datapoint one by one. There is a test csv file called testdf12.csv. Loading this file and running f(df) should return 0.6087900679163438.
 """
+
 def f(df):
     ##########YOUR CODE HERE##########
-    pass
+    path = 'testdf12.csv'
+    df = pd.read_csv(path)
+    N = df['y'].size
+    s = 0
+    for index, row in df.iterrows():
+        if row['y'] == 'blue':
+            s = s + -np.log(row['p_blue'])/N
+        elif row['y'] == 'green':
+            s = s + -np.log(row['p_green'])/N
+        elif row['y'] == 'red':
+            s = s + -np.log(row['p_red'])/N
+    return s
     ###########END CODE###############

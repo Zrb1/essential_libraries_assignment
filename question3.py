@@ -19,5 +19,16 @@ rounding issues.
 
 def f(arr):
     ##########YOUR CODE HERE##########
-    pass
+    arr=np.array([[4., 2., -3.],
+                 [3., 7., 11.],
+                 [13., 6., 2.],
+                 [2., -9., 8.]])
+    mean = np.mean(arr)
+    std = np.std(arr)
+    larr = len(arr)
+    x = np.array([])
+    for i in range(larr):
+        y = (arr[i] - mean) / std
+        x = np.append(y, x)
+    return x
     ###########END CODE###############

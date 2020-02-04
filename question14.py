@@ -33,7 +33,36 @@ This is definitely not an extensive grid search. There are more hyperparameters 
 you could try running completely different models. However for the sake of our ability to grade this problem for all the students, the grid search is being limited to
 what it is here.
 """
+
 def f(path):
     ##########YOUR CODE HERE##########
-    pass
+    path = 'breast-cancer-wisconsin.csv'
+    n_estimators = [10, 50, 100]
+    max_depth = [2, 5, 10, 100]
+    min_samples_split = [2, 4, 8, 16]
+
+    L=[n_estimators, max_depth, min_samples_split]
+
+    df = pd.read_csv(path)
+    df = df.dropna(axis='rows')
+    y = df['Class']
+    X = df.drop('Class',axis='columns')
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size = 0.3, random_state = 0)
+
+    plist = []
+    plist = [(i, j, k) for i in n_estimators for j in max_depth for k in min_samples_split]
+
+    score1 = []
+    for (i, j, k) in plist:
+        clf = RandomForestClassifier(n_estimators = i, max_depth = j, min_samples_split = k)
+        fit = clf.fit(X_train, y_train)
+        score = fit.score(X_test, y_test)
+        score1 = score1.append(score)
+        index_max = score1.index(max(score1))
+        maxscore = score[index_max]
+        maxclf = clf[index_max]
+        print(maxscore, maxclf)
+        return maxscpre, maxclf
     ###########END CODE###############

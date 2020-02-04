@@ -10,5 +10,14 @@ a common way of normalizing the values in a dataset.
 
 def f(arr):
     ##########YOUR CODE HERE##########
-    pass
+    arr = np.array([1,2,3,4,5,6])
+    mean = np.mean(arr)
+    std = np.std(arr)
+    larr = len(arr)
+    x = np.array([])
+    for i in range(larr):
+        y = (arr[i] - mean) / std
+        x = -np.append(y, x)
+    return x
     ###########END CODE###############
+

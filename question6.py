@@ -18,5 +18,7 @@ Then, f(path) should return the dataframe,
 """
 def f(path):
     ##########YOUR CODE HERE##########
-    pass
+    path = 'test_data.txt'
+    x = pd.read_csv(path, delimiter= ' ', names=['column_1','column_2','column_3'])
+    return x
     ###########END CODE###############

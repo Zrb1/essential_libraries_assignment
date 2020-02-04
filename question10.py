@@ -19,5 +19,7 @@ df1 and the second file as df2 and running f(df1, df2) should return
 """
 def f(df1, df2):
     ##########YOUR CODE HERE##########
-    pass
+    cols = ['id'] + list(df2.columns.difference(df1.columns))
+    x = df1.merge(df2[cols], on='id', how='inner')
+    return x
     ###########END CODE###############

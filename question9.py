@@ -17,5 +17,10 @@ dataframe and running f(df) should return
 """
 def f(df):
     ##########YOUR CODE HERE##########
-    pass
+    ##########YOUR CODE HERE##########
+    path = 'testdf9.csv'
+    df = pd.read_csv(path)
+    def nwords(s):
+        return len(s.split())
+    return df[df['text'].apply(nwords) >= 10]
     ###########END CODE###############

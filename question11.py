@@ -12,5 +12,9 @@ Where N is the number of datapoints. For example if y = array([0.5,1,2,4,8]) and
 """
 def f(y, y_pred):
     ##########YOUR CODE HERE##########
-    pass
+    N = y.size
+    sq_er = (y_pred - y)**2
+    sum_sq_er = np.sum(sq_er)
+    loss = sum_sq_er / N
+    return loss
     ###########END CODE###############

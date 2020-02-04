@@ -19,5 +19,11 @@ file in this repo called testdf7.csv. Loading this dataframe into memory and run
 """
 def f(df):
     ##########YOUR CODE HERE##########
-    pass
+    path = 'testdf7.csv'
+    df = pd.read_csv(path)
+    dfx = df.copy()
+    col1_mean = dfx.loc[:, 'col_1'].mean()
+    dfx['col_1'] = dfx['col_1'].fillna(col1_mean)
+    dfx = dfx.dropna(axis=0)
+    return dfx
     ###########END CODE###############

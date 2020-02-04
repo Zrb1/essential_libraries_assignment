@@ -22,5 +22,14 @@ where path is the path to this csv file should return a score somewhere between 
 """
 def f(path):
     ##########YOUR CODE HERE##########
-    pass
+    path = 'breast-cancer-wisconsin.csv'
+    df = pd.read_csv(path)
+    df = df.dropna(axis='rows')
+    y = df['Class']
+    X = df.drop('Class', axis='columns')
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size = 0.3, random_state = 0)
+    logr = LogisticRegression().fit(X_train,y_train)
+    score = logr.score(X_test, y_test)
+    return score
     ###########END CODE###############

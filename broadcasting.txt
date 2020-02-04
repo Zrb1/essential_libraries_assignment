@@ -1,0 +1,14 @@
+This is a distinctive feature of numpy called broadcasting. It is done using four rules which are a bit complicated in formulation but are rather intuitive once understood:
+
+1.  All input arrays with ndim smaller than the input array of largest ndim, have 1’s prepended to their shapes.
+2.  The size in each dimension of the output shape is the maximum of all the input sizes in that dimension.
+3.  An input can be used in the calculation if its size in a particular dimension either matches the output size in that dimension, or has value exactly 1.
+4.  If an input has a dimension size of 1 in its shape, the first data entry in that dimension will be used for all calculations along that dimension. In other words, the stepping machinery of the ufunc will simply not step along that dimension (the stride will be 0 for that dimension).
+
+The operation is possible (doesnt result in shape mismatch error you mentioned) in three cases:
+
+1.  The arrays all have exactly the same shape.
+2.  The arrays all have the same number of dimensions and the length of each dimensions is either a common length or 1.
+3.  The arrays that have too few dimensions can have their shapes prepended with a dimension of length 1 to satisfy property 2.
+
+Examples can be found via the link above.

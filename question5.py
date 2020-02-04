@@ -21,5 +21,8 @@ Then f(arr1,arr2) should return array([[ 1. ,  2. ,  3.5,  4. ],
 
 def f(arr1, arr2):
     ##########YOUR CODE HERE##########
-    pass
+    arr1 = arr1[:2]
+    arr2 = arr2[1:]
+    arr = np.concatenate((arr1, arr2), axis=0)
+    return arr
     ###########END CODE###############

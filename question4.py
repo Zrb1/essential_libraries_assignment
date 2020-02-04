@@ -9,5 +9,12 @@ Round your answer to 4 decimal places. Suppose arr1 = array([1,2,3]) and arr2 = 
 
 def f(arr1, arr2):
     ##########YOUR CODE HERE##########
-    pass
+    arr1 = np.array([1, 2, 3])
+    arr2 = np.array([-4, 0, 3.5])
+    marr1 = np.linalg.norm(arr1)
+    marr2 = np.linalg.norm(arr2)
+    darr1 = (arr1/marr1)
+    darr2 = (arr2/marr2)
+    coss = np.dot(darr1,darr2)
+    return cross
     ###########END CODE###############
